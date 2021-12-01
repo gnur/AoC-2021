@@ -1,0 +1,19 @@
+#!/bin/bash
+
+echo $i
+found=0
+
+for i in {1..25}; do
+  if [[ -d "day-${i}" ]]; then
+    found=${i}
+    continue
+  fi
+  break
+done
+
+cd day-$found
+if [[ $# -gt 0 ]]; then
+  echo "Using test input"
+  export IN=testinput
+fi
+go run .

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+for i in {1..25}; do
+  echo $i
+  if [[ -d "day-${i}" ]]; then
+    continue
+  fi
+  cp -a template day-${i}
+  break
+done
+
+git add .
+
+git commit -m "New day!"
